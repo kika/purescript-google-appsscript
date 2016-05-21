@@ -1,0 +1,27 @@
+{
+  "name": "purescript-google-appsscript",
+  "version": "0.0.1",
+  "description": "Bindings to the Google Apps Scripts API",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "pulp build -O --skip-entry-point | cat - src.crt0.js/startup.js | tee output/app.js |pbcopy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kika/purescript-google-appsscript.git"
+  },
+  "keywords": [
+    "purescript",
+    "google"
+  ],
+  "author": "Kirill Pertsev <kika@kikap.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kika/purescript-google-appsscript/issues"
+  },
+  "homepage": "https://github.com/kika/purescript-google-appsscript#readme"
+}
