@@ -1,4 +1,4 @@
-"use script";
+"use strict";
 
 // module Google.AppsScript.Logger
 //

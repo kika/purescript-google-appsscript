@@ -1,6 +1,6 @@
 {
-  "name": "googleapps.purs",
-  "version": "1.0.0",
+  "name": "purescript-google-appsscript",
+  "version": "0.0.1",
   "moduleType": [
     "node"
   ],
