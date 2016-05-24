@@ -15,7 +15,7 @@ import Google.AppsScript.AppsScript (GASEff)
 foreign import data Ui:: *
 
 data Button = Close | Ok | Cancel | Yes | No
-data ButtonSet = Ok | OkCancel | YesNo | YesNoCancel
+data ButtonSet = OkAlone | OkCancel | YesNo | YesNoCancel
 
 foreign import alert::String -> Ui -> GASEff Button
 foreign import alertButtons::String -> ButtonSet -> GASEff Button

@@ -6,16 +6,32 @@ exports.alert = function (msg) {
     return function (ui) {
         switch (ui.alert(msg)) {
             case ui.Button.CLOSE:
-                return Close.create();
+                return exports.Close;
             case ui.Button.OK:
-                return Ok.create();
+                return exports.Ok;
             case ui.Button.CANCEL:
-                return Cancel.create();
+                return exports.Cancel;
             case ui.Button.YES:
-                return Yes.create();
+                return exports.Yes;
             case ui.Button.NO:
             default:
-                return No.create();
+                return exports.No;
+        }
+    }
+}
+
+exports.alertButtons = function (msg) {
+    return function (btnset) {
+        return function (ui) {
+        }
+    }
+}
+
+exports.alertTitle = function (title) {
+    return function (msg) {
+        return function (btnset) {
+            return function (ui) {
+            }
         }
     }
 }
