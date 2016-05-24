@@ -2,7 +2,7 @@ module Google.AppsScript.Ui
 (
     Ui
   , Button(..)
-  , ButtonSet
+  , ButtonSet(..)
   , alert
   {-
   , prompt
@@ -18,3 +18,5 @@ data Button = Close | Ok | Cancel | Yes | No
 data ButtonSet = Ok | OkCancel | YesNo | YesNoCancel
 
 foreign import alert::String -> Ui -> GASEff Button
+foreign import alertButtons::String -> ButtonSet -> GASEff Button
+foreign import alertTitle::String -> String -> ButtonSet -> GASEff Button
