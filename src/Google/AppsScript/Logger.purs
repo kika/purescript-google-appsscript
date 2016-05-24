@@ -10,20 +10,20 @@ import Prelude
 import Control.Monad.Eff
 import Control.Monad.Eff.Class
 import Data.Function
-import Google.AppsScript.AppsScript (GAS)
+import Google.AppsScript.AppsScript (GAS, GASEff)
 
-foreign import clearImpl::forall e. Fn0 (Eff(log::GAS|e) Unit)
-foreign import getLogImpl::forall e. Fn0 (Eff(log::GAS|e) (Array String))
-foreign import logImpl::forall e. Fn1 String (Eff(log::GAS|e) Unit)
+foreign import clearImpl::GASEff Unit
+foreign import getLogImpl::GASEff (Array String)
+foreign import logImpl::String -> (GASEff Unit)
 
 -- | Clears contents of the log
-clear::forall e. Eff(log::GAS|e) Unit
-clear = runFn0 clearImpl
+clear::GASEff Unit
+clear = clearImpl
 
 -- | Returns the list of messages in the log
-getLog::forall e. Eff(log::GAS|e) (Array String)
-getLog = runFn0 getLogImpl
+getLog::GASEff (Array String)
+getLog = getLogImpl
 
 -- | Sends the text string to the log
-log::forall e. String -> Eff(log::GAS|e) Unit
-log msg = runFn1 logImpl msg
+log::String -> GASEff Unit
+log = logImpl
