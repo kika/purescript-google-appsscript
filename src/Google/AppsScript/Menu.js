@@ -7,13 +7,9 @@ exports.createAddonMenu = function (ui) {
     }
 }
 
-exports.addItem = function (caption) {
-    return function (funcName) {
-        return function (menu) {
-            return function () {
-                return menu.addItem( caption, funcName );
-            }
-        }
+exports.addItemImpl = function (caption, funcName, menu) {
+    return function () {
+        return menu.addItem( caption, funcName );
     }
 }
 

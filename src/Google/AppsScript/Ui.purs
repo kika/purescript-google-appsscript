@@ -6,14 +6,17 @@ module Google.AppsScript.Ui
   , alert
   , alertButtons
   , alertTitle
+  , showSidebar
   {-
   , prompt
   , createAddonMenu
   -}
 ) where
 
+import Prelude (Unit)
 import Data.Function
 import Google.AppsScript.AppsScript (GASEff)
+import Google.AppsScript.Html (HtmlOutput)
 
 foreign import data Ui:: *
 
@@ -26,6 +29,7 @@ foreign import alertBtnsImpl::Fn4  (Array Button)
                                    String ButtonSet Ui (GASEff Button)
 foreign import alertTitleImpl::Fn5 (Array Button) 
                                    String String ButtonSet Ui (GASEff Button)
+foreign import showSidebarImpl::Fn2 HtmlOutput Ui (GASEff Unit)
 
 btns::Array Button 
 btns = [Close, Ok, Cancel, Yes, No]
@@ -38,3 +42,6 @@ alertButtons msg btnset ui = runFn4 alertBtnsImpl btns msg btnset ui
 
 alertTitle::String -> String -> ButtonSet -> Ui -> GASEff Button
 alertTitle title msg btnset ui = runFn5 alertTitleImpl btns title msg btnset ui
+
+showSidebar::HtmlOutput -> Ui -> GASEff Unit
+showSidebar html ui = runFn2 showSidebarImpl html ui

@@ -9,12 +9,16 @@ module Google.AppsScript.Menu
 ) where 
 
 import Prelude (Unit)
+import Data.Function
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
 
 foreign import data Menu :: *
 foreign import createAddonMenu::Ui -> GASEff Menu
-foreign import addItem::String -> String -> Menu -> GASEff Menu
+foreign import addItemImpl::Fn3 String String Menu (GASEff Menu)
 foreign import addToUi::Menu -> GASEff Unit
 foreign import addSeparator::Menu -> GASEff Menu
 foreign import addSubMenu::Menu -> Menu -> GASEff Menu
+
+addItem::String -> String -> Menu -> GASEff Menu
+addItem cap funcname menu = runFn3 addItemImpl cap funcname menu
