@@ -2,36 +2,74 @@
 
 "use strict";
 
-exports.alert = function (msg) {
-    return function (ui) {
+exports.alertImpl = function (buttons, msg, ui) {
+    return function () {
         switch (ui.alert(msg)) {
             case ui.Button.CLOSE:
-                return exports.Close;
+                return buttons[0];
             case ui.Button.OK:
-                return exports.Ok;
+                return buttons[1];
             case ui.Button.CANCEL:
-                return exports.Cancel;
+                return buttons[2];
             case ui.Button.YES:
-                return exports.Yes;
+                return buttons[3];
             case ui.Button.NO:
             default:
-                return exports.No;
+                return buttons[4];
         }
     }
 }
 
-exports.alertButtons = function (msg) {
-    return function (btnset) {
-        return function (ui) {
+function btnset(ui, btns) {
+    switch (btns.constructor.name) {
+        case 'OkCancel':
+            return ui.ButtonSet.OK_CANCEL;
+            break;
+        case 'YesNo':
+            return ui.ButtonSet.YES_NO;
+            break;
+        case 'YesNoCancel':
+            return ui.ButtonSet.YES_NO_CANCEL;
+            break;
+        case 'OkAlone':
+        default:
+            return ui.ButtonSet.OK;
+            break;
+    }
+}
+
+exports.alertBtnsImpl = function (buttons, msg, btns, ui) {
+    return function () {
+        switch (ui.alert(msg, btnset(ui, btns))) {
+            case ui.Button.CLOSE:
+                return buttons[0];
+            case ui.Button.OK:
+                return buttons[1];
+            case ui.Button.CANCEL:
+                return buttons[2];
+            case ui.Button.YES:
+                return buttons[3];
+            case ui.Button.NO:
+            default:
+                return buttons[4];
         }
     }
 }
 
-exports.alertTitle = function (title) {
-    return function (msg) {
-        return function (btnset) {
-            return function (ui) {
-            }
+exports.alertTitleImpl = function (buttons, title, msg, btns, ui) {
+    return function () {
+        switch (ui.alert(title, msg, btnset(ui, btns))) {
+            case ui.Button.CLOSE:
+                return buttons[0];
+            case ui.Button.OK:
+                return buttons[1];
+            case ui.Button.CANCEL:
+                return buttons[2];
+            case ui.Button.YES:
+                return buttons[3];
+            case ui.Button.NO:
+            default:
+                return buttons[4];
         }
     }
 }
