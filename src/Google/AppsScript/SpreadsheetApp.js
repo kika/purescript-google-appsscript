@@ -60,3 +60,14 @@ exports.getA1Notation = function (range) {
     }
 }
 
+exports.getValue = function (range) {
+    return function () {
+        return range.getValue();
+    }
+}
+
+exports.getFormula = function (range) {
+    return function () {
+        return range.getFormula();
+    }
+}

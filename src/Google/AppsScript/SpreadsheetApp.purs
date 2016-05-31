@@ -15,10 +15,14 @@ module Google.AppsScript.SpreadsheetApp
   , getNumColumns  
   , getActiveRange
   , getA1Notation
+  , getValue
+  , getFormula
 ) where
 
 import Prelude
 import Data.Function
+import Data.Foreign 
+import Data.Foreign.Class
 
 import Google.AppsScript.AppsScript (GAS, GASEff)
 import Google.AppsScript.Ui (Ui)
@@ -43,7 +47,8 @@ foreign import getLastRow::Range -> GASEff Row
 foreign import getNumRows::Range -> GASEff Int
 foreign import getNumColumns::Range -> GASEff Int
 foreign import getA1Notation::Range -> GASEff String
-foreign import getValue::Range -> GASEff Object
+foreign import getValue::Range -> GASEff Foreign
+foreign import getFormula::Range -> GASEff String
 
 getCell::Row -> Column -> Range -> GASEff Range
 getCell row col range = runFn3 getCellImpl range row col 
