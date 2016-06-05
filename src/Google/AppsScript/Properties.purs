@@ -1,11 +1,12 @@
 module Google.AppsScript.Properties
 (
     Properties
+  , Props
   , getDocProps
   , getScriptProps
   , getUserProps
-  , deleteAll
-  , delete
+  , delAll
+  , del
   , keys
   , getAll
   , get
@@ -13,9 +14,7 @@ module Google.AppsScript.Properties
   , set
 ) where
 
-import Data.Foreign
-import Data.StrMap
-import Control.Monad.Eff
+import Data.StrMap (StrMap)
 import Google.AppsScript.AppsScript (GASEff)
 
 foreign import data Properties :: *
@@ -25,8 +24,8 @@ foreign import getDocProps::GASEff Properties
 foreign import getScriptProps::GASEff Properties
 foreign import getUserProps::GASEff Properties
 
-foreign import deleteAll::Properties -> GASEff Properties
-foreign import delete::String -> Properties -> GASEff Properties
+foreign import delAll::Properties -> GASEff Properties
+foreign import del::String -> Properties -> GASEff Properties
 foreign import keys::Properties -> GASEff (Array String)
 foreign import getAll::Properties -> GASEff Props 
 foreign import get::String -> Properties -> GASEff String
