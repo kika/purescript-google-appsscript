@@ -26,7 +26,7 @@ exports.setWidthImpl = function (width, html) {
 
 exports.setSandboxMode = function (html) {
     return function() {
-        html.setSandboxMode( html.SandBoxMode.IFRAME );
-        return {};
+        html.setSandboxMode( HtmlService.SandboxMode.IFRAME );
+        return html;
     }
 }

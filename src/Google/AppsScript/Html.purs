@@ -2,6 +2,11 @@ module Google.AppsScript.Html
 (
     HtmlService
   , HtmlOutput
+  , html
+  , createHtmlOutputFromFile
+  , setTitle
+  , setWidth
+  , setSandboxMode
 ) where
 
 import Data.Function
@@ -18,7 +23,7 @@ foreign import setTitleImpl::Fn2 String HtmlOutput (GASEff HtmlOutput)
 foreign import setWidthImpl::Fn2 Int HtmlOutput (GASEff HtmlOutput)
 -- the only supported mode now is IFRAME 
 -- so there is no point in passing it as a parameter
-foreign import setSandboxMode::GASEff HtmlOutput
+foreign import setSandboxMode::HtmlOutput -> GASEff HtmlOutput
 
 createHtmlOutputFromFile:: String -> HtmlService -> GASEff HtmlOutput
 createHtmlOutputFromFile file htmlo =

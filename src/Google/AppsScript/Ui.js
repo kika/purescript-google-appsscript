@@ -76,7 +76,7 @@ exports.alertTitleImpl = function (buttons, title, msg, btns, ui) {
 
 exports.showSidebarImpl = function (html, ui) {
     return function () {
-        ui.showSideBar(html);
+        ui.showSidebar(html);
         return {};
     }
 }
