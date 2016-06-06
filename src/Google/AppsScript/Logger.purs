@@ -4,26 +4,22 @@ module Google.AppsScript.Logger
     clear
   , getLog
   , log
+  , debug
 ) where
 
 import Prelude
-import Control.Monad.Eff
-import Control.Monad.Eff.Class
-import Data.Function
-import Google.AppsScript.AppsScript (GAS, GASEff)
+import Google.AppsScript.AppsScript (GASEff)
 
-foreign import clearImpl::GASEff Unit
-foreign import getLogImpl::GASEff (Array String)
-foreign import logImpl::String -> (GASEff Unit)
+foreign import debugImpl::forall a b. a -> (Unit -> b) -> b
 
 -- | Clears contents of the log
-clear::GASEff Unit
-clear = clearImpl
-
+foreign import clear::GASEff Unit
 -- | Returns the list of messages in the log
-getLog::GASEff (Array String)
-getLog = getLogImpl
-
+foreign import getLog::GASEff (Array String)
 -- | Sends the text string to the log
-log::String -> GASEff Unit
-log = logImpl
+foreign import log::String -> (GASEff Unit)
+
+-- | Fake pure logging for debug purposes
+debug::forall a. String -> (Unit -> a) -> a
+debug = debugImpl
+
