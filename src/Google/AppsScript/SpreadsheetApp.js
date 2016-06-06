@@ -71,3 +71,19 @@ exports.getFormula = function (range) {
         return range.getFormula();
     }
 }
+
+exports.getActiveSheet = function (app) {
+    return function () {
+       return app.getActiveSheet(); 
+    }
+} //SpreadsheetApp -> GASEff Sheet
+exports.getName = function (sheet) {
+    return function () {
+        return sheet.getName(); 
+    }
+} //Sheet -> GASEff String
+exports.getSheetId = function (sheet) {
+    return function () {
+        return sheet.getSheetId();    
+    }
+} //Sheet -> GASEff Int

@@ -17,6 +17,9 @@ module Google.AppsScript.SpreadsheetApp
   , getA1Notation
   , getValue
   , getFormula
+  , getActiveSheet
+  , getSheetId
+  , getName
 ) where
 
 import Prelude
@@ -24,11 +27,12 @@ import Data.Function
 import Data.Foreign 
 import Data.Foreign.Class
 
-import Google.AppsScript.AppsScript (GAS, GASEff)
+import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
 import Google.AppsScript.Menu (Menu)
 
 foreign import data SpreadsheetApp :: *
+foreign import data Spreadsheet :: *
 foreign import data Sheet :: *
 foreign import data Range :: *
 
@@ -37,6 +41,11 @@ type Column = Int
 
 foreign import app::GASEff SpreadsheetApp
 foreign import getUi::SpreadsheetApp -> GASEff Ui
+
+-- Sheet functions
+foreign import getActiveSheet::SpreadsheetApp -> GASEff Sheet
+foreign import getName::Sheet -> GASEff String
+foreign import getSheetId::Sheet -> GASEff Int
 
 -- Range functions
 foreign import getActiveRange::SpreadsheetApp -> GASEff Range
