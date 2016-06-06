@@ -26,9 +26,8 @@ foreign import setWidthImpl::Fn2 Int HtmlOutput (GASEff HtmlOutput)
 foreign import setSandboxMode::HtmlOutput -> GASEff HtmlOutput
 
 createHtmlOutputFromFile:: String -> HtmlService -> GASEff HtmlOutput
-createHtmlOutputFromFile file htmlo =
-  runFn2 createHtmlOutputFromFileImpl file htmlo 
+createHtmlOutputFromFile f h = runFn2 createHtmlOutputFromFileImpl f h
 setTitle::String -> HtmlOutput -> GASEff HtmlOutput 
-setTitle title htmlo = runFn2 setTitleImpl title htmlo
+setTitle t h = runFn2 setTitleImpl t h
 setWidth::Int -> HtmlOutput -> GASEff HtmlOutput      
-setWidth width htmlo = runFn2 setWidthImpl width htmlo
+setWidth w h = runFn2 setWidthImpl w h
