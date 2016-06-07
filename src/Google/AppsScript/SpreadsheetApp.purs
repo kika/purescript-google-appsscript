@@ -20,6 +20,12 @@ module Google.AppsScript.SpreadsheetApp
   , getActiveSheet
   , getSheetId
   , getName
+  , getRange2
+  , getRange3
+  , getRange4
+  , setActiveRange
+  , getMaxColumns
+  , getMaxRows
 ) where
 
 import Prelude
@@ -46,6 +52,13 @@ foreign import getUi::SpreadsheetApp -> GASEff Ui
 foreign import getActiveSheet::SpreadsheetApp -> GASEff Sheet
 foreign import getName::Sheet -> GASEff String
 foreign import getSheetId::Sheet -> GASEff Int
+foreign import getRange::String -> Sheet -> GASEff Range
+foreign import getRange2Impl::Fn3 Row Column Sheet (GASEff Range)
+foreign import getRange3Impl::Fn4 Row Column Int Sheet (GASEff Range)
+foreign import getRange4Impl::Fn5 Row Column Int Int Sheet (GASEff Range)
+foreign import setActiveRange::Range -> Sheet -> GASEff Range
+foreign import getMaxRows::Sheet -> GASEff Int
+foreign import getMaxColumns::Sheet -> GASEff Int
 
 -- Range functions
 foreign import getActiveRange::SpreadsheetApp -> GASEff Range
@@ -61,3 +74,10 @@ foreign import getFormula::Range -> GASEff String
 
 getCell::Row -> Column -> Range -> GASEff Range
 getCell row col range = runFn3 getCellImpl range row col 
+getRange2::Row -> Column -> Sheet -> GASEff Range
+getRange2 row col sheet = runFn3 getRange2Impl row col sheet
+getRange3::Row -> Column -> Int -> Sheet -> GASEff Range
+getRange3 row col rows sheet = runFn4 getRange3Impl row col rows sheet
+getRange4::Row -> Column -> Int -> Int -> Sheet -> GASEff Range
+getRange4 row col rows cols sheet = runFn5 getRange4Impl row col rows cols sheet
+

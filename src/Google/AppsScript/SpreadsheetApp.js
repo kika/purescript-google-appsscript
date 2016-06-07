@@ -87,3 +87,50 @@ exports.getSheetId = function (sheet) {
         return sheet.getSheetId();    
     }
 } //Sheet -> GASEff Int
+
+exports.getRange = function (range) {
+    return function (sheet) {
+        return function () {
+            return sheet.getRange(range);
+        }
+    }
+} // String -> Sheet -> GASEff Range
+
+exports.setActiveRange = function (range) {
+    return function (sheet) {
+        return function () {
+            return sheet.setActiveRange(range);
+        }
+    }
+} // Range -> Sheet -> GASEff Range
+
+exports.getMaxRows = function (sheet) {
+    return function () {
+        return sheet.getMaxRows();
+    }
+} // Sheet -> GASEff Int
+
+exports.getMaxColumns = function (sheet) {
+    return function () {
+        return sheet.getMaxColumns();
+    }
+} // Sheet -> GASEff Int
+
+exports.getRange2Impl = function (r, c, sheet) {
+    return function () {
+        return sheet.getRange(r, c);
+    }
+} // Fn3 Row Column Sheet (GASEff Range)
+
+exports.getRange3Impl = function (r, c, rs, sheet) {
+    return function () {
+        return sheet.getRange(r, c, rs);
+    }
+} // Fn4 Row Column Int Sheet (GASEff Range)
+
+exports.getRange4Impl = function (r, c, rs, cs, sheet) {
+    return function () {
+        return sheet.getRange(r, c, rs, cs);
+    }
+} // Fn5 Row Column Int Int Sheet (GASEff Range)
+
