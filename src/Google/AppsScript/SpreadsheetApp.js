@@ -12,9 +12,9 @@ exports.getUi = function (app) {
     }
 }
 
-exports.getActiveRange = function (app) {
+exports.getActiveRange = function (sheet) {
     return function () {
-        return app.getActiveRange();
+        return sheet.getActiveRange();
     }
 } // SpreadsheetApp -> GASEff Range
 

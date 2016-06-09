@@ -61,7 +61,7 @@ foreign import getMaxRows::Sheet -> GASEff Int
 foreign import getMaxColumns::Sheet -> GASEff Int
 
 -- Range functions
-foreign import getActiveRange::SpreadsheetApp -> GASEff Range
+foreign import getActiveRange::Sheet -> GASEff Range
 foreign import getColumn::Range -> GASEff Int
 foreign import getCellImpl::Fn3 Range Row Column (GASEff Range)
 foreign import getLastColumn::Range -> GASEff Column
