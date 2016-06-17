@@ -1,5 +1,3 @@
-// module Google.AppsScript.SpreadsheetApp
-
 "use strict";
 
 exports.app = function () {

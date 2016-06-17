@@ -1,4 +1,3 @@
-// module Google.AppsScript.Properties
 "use strict";
 
 exports.getDocProps = function () {

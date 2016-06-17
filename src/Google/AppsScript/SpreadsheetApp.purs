@@ -28,14 +28,11 @@ module Google.AppsScript.SpreadsheetApp
   , getMaxRows
 ) where
 
-import Prelude
-import Data.Function
-import Data.Foreign 
-import Data.Foreign.Class
+import Data.Function.Uncurried (Fn3, Fn5, Fn4, runFn5, runFn4, runFn3)
+import Data.Foreign (Foreign)
 
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
-import Google.AppsScript.Menu (Menu)
 
 foreign import data SpreadsheetApp :: *
 foreign import data Spreadsheet :: *

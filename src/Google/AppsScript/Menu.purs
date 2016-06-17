@@ -9,7 +9,7 @@ module Google.AppsScript.Menu
 ) where 
 
 import Prelude (Unit)
-import Data.Function
+import Data.Function.Uncurried (Fn3, runFn3)
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
 

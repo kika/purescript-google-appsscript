@@ -15,7 +15,7 @@ module Google.AppsScript.Properties
 ) where
 
 import Prelude
-import Data.Function (Fn2, Fn3, runFn2, runFn3)
+import Data.Function.Uncurried (Fn2, Fn3, runFn2, runFn3)
 import Data.Maybe (Maybe)
 import Data.Nullable (toMaybe, Nullable)
 import Data.StrMap (StrMap)

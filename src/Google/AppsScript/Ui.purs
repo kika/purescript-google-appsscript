@@ -13,8 +13,9 @@ module Google.AppsScript.Ui
   -}
 ) where
 
-import Prelude (Unit)
-import Data.Function
+import Prelude
+import Data.Function.Uncurried (Fn2, Fn5, Fn4, Fn3, 
+                                runFn2, runFn5, runFn4, runFn3)
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Html (HtmlOutput)
 

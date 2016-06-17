@@ -9,7 +9,7 @@ module Google.AppsScript.Html
   , setSandboxMode
 ) where
 
-import Data.Function
+import Data.Function.Uncurried
 import Google.AppsScript.AppsScript (GASEff)
 
 foreign import data HtmlService :: *
