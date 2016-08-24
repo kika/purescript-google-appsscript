@@ -49,15 +49,15 @@ foreign import getUi::SpreadsheetApp -> GASEff Ui
 foreign import getActiveSheet::SpreadsheetApp -> GASEff Sheet
 foreign import getName::Sheet -> GASEff String
 foreign import getSheetId::Sheet -> GASEff Int
+foreign import getMaxRows::Sheet -> GASEff Int
+foreign import getMaxColumns::Sheet -> GASEff Int
+
+-- Range functions
 foreign import getRange::String -> Sheet -> GASEff Range
 foreign import getRange2Impl::Fn3 Row Column Sheet (GASEff Range)
 foreign import getRange3Impl::Fn4 Row Column Int Sheet (GASEff Range)
 foreign import getRange4Impl::Fn5 Row Column Int Int Sheet (GASEff Range)
 foreign import setActiveRange::Range -> Sheet -> GASEff Range
-foreign import getMaxRows::Sheet -> GASEff Int
-foreign import getMaxColumns::Sheet -> GASEff Int
-
--- Range functions
 foreign import getActiveRange::Sheet -> GASEff Range
 foreign import getColumn::Range -> GASEff Int
 foreign import getCellImpl::Fn3 Range Row Column (GASEff Range)
