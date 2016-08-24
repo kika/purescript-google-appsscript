@@ -15,6 +15,7 @@
     "purescript-functions": "^1.0.0",
     "purescript-foreign": "^1.0.0",
     "purescript-maps": "^1.0.0",
-    "purescript-nullable": "^1.0.0"
+    "purescript-nullable": "^1.0.0",
+    "purescript-options": "^1.0.0"
   }
 }
