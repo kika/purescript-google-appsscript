@@ -2,6 +2,7 @@ module Google.AppsScript.Http
 (
     get
   , request
+  , Method(..)
   , HTTPResponse
   , getHeaders
   , getCookies
@@ -14,12 +15,28 @@ module Google.AppsScript.Http
   , Bytes
   , Cookies
   , Headers
+  , ReqOptions
   , RequestOptions
+  , RequestHeaders(..)
+  , contentType
+  , headers
+  , method
+  , payload
+  , useIntranet
+  , validateHttpsCertificates
+  , followRedirects
+  , muteHttpExtensions
+  , escaping
 ) where
 
+import Prelude
+
+import Data.Maybe
 import Data.Function.Uncurried         (Fn2, runFn2)
+import Data.Foreign
 import Data.Options
 import Data.StrMap                     (StrMap)
+import Data.Functor.Contravariant      ((>$<))
 
 import Google.AppsScript.AppsScript    (GASEff)
 import Google.AppsScript.Blob          (Blob)
@@ -27,6 +44,13 @@ import Google.AppsScript.Blob          (Blob)
 foreign import data HTTPResponse :: *
 foreign import data Bytes :: *
 
+data Method = GET | DELETE | PATCH | POST | PUT
+instance showMethod::Show Method where
+  show GET    = "get"
+  show DELETE = "delete"
+  show PATCH  = "patch"
+  show POST   = "post"
+  show PUT    = "put"
 
 type Headers = StrMap String
 type Cookies = StrMap (Array String)
@@ -38,14 +62,17 @@ type ReqOptions = Options RequestOptions
 -- | Request headers
 newtype RequestHeaders = RequestHeaders (StrMap String)
 
-contentType::Option RequestOptions String
-contentType = opt "contentType"
+contentType::Option RequestOptions (Maybe String)
+contentType = optional $ opt "contentType"
 
-headers::Option RequestOptions RequestHeaders
-headers = opt "headers"
+headers::Option RequestOptions (Maybe RequestHeaders)
+headers = optional $ opt "headers"
 
-payload::Option RequestOptions String
-payload = opt "payload"
+method::Option RequestOptions Method
+method = show >$< (opt "method")
+
+payload::Option RequestOptions (Maybe String)
+payload = optional $ opt "payload"
 
 useIntranet::Option RequestOptions Boolean
 useIntranet = opt "useIntranet"
@@ -65,7 +92,7 @@ escaping = opt "escaping"
 -- UrlFetchApp
 foreign import get::String -> GASEff HTTPResponse
 request::String -> ReqOptions -> GASEff HTTPResponse
-request url opts = runFn2 requestImpl url opts
+request url opts = runFn2 requestImpl url $ options opts
 
 -- HTTPResponse
 foreign import getHeaders::HTTPResponse -> GASEff Headers
@@ -81,5 +108,5 @@ foreign import getResponseCode::HTTPResponse -> GASEff Int
 
 foreign import getContentTextAsImpl::Fn2 String HTTPResponse (GASEff String)
 foreign import getAsImpl::Fn2 String HTTPResponse (GASEff Blob)
-foreign import requestImpl::Fn2 String ReqOptions (GASEff HTTPResponse)
+foreign import requestImpl::Fn2 String Foreign (GASEff HTTPResponse)
 
