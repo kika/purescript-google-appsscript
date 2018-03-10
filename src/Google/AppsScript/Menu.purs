@@ -13,7 +13,7 @@ import Data.Function.Uncurried (Fn3, runFn3)
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
 
-foreign import data Menu :: *
+foreign import data Menu :: Type
 foreign import createAddonMenu::Ui -> GASEff Menu
 foreign import addItemImpl::Fn3 String String Menu (GASEff Menu)
 foreign import addToUi::Menu -> GASEff Unit

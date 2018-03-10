@@ -31,18 +31,18 @@ module Google.AppsScript.Http
 
 import Prelude
 
-import Data.Maybe
+import Data.Maybe                      (Maybe)
 import Data.Function.Uncurried         (Fn2, runFn2)
-import Data.Foreign
-import Data.Options
+import Data.Foreign                    (Foreign)
+import Data.Options                    (Option, Options, opt, optional, options)
 import Data.StrMap                     (StrMap)
 import Data.Functor.Contravariant      ((>$<))
 
 import Google.AppsScript.AppsScript    (GASEff)
 import Google.AppsScript.Blob          (Blob)
 
-foreign import data HTTPResponse :: *
-foreign import data Bytes :: *
+foreign import data HTTPResponse :: Type
+foreign import data Bytes :: Type
 
 data Method = GET | DELETE | PATCH | POST | PUT
 instance showMethod::Show Method where
@@ -109,4 +109,3 @@ foreign import getResponseCode::HTTPResponse -> GASEff Int
 foreign import getContentTextAsImpl::Fn2 String HTTPResponse (GASEff String)
 foreign import getAsImpl::Fn2 String HTTPResponse (GASEff Blob)
 foreign import requestImpl::Fn2 String Foreign (GASEff HTTPResponse)
-

@@ -21,7 +21,7 @@ import Data.Nullable (toMaybe, Nullable)
 import Data.StrMap (StrMap)
 import Google.AppsScript.AppsScript (GASEff)
 
-foreign import data Properties :: *
+foreign import data Properties :: Type
 type Props = StrMap String
 
 foreign import getDocProps::GASEff Properties

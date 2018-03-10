@@ -12,8 +12,8 @@ module Google.AppsScript.Html
 import Data.Function.Uncurried
 import Google.AppsScript.AppsScript (GASEff)
 
-foreign import data HtmlService :: *
-foreign import data HtmlOutput  :: *
+foreign import data HtmlService :: Type
+foreign import data HtmlOutput  :: Type
 
 
 foreign import html::GASEff HtmlService

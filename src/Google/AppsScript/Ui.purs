@@ -19,7 +19,7 @@ import Data.Function.Uncurried (Fn2, Fn5, Fn4, Fn3,
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Html (HtmlOutput)
 
-foreign import data Ui:: *
+foreign import data Ui:: Type
 
 data Button = Close | Ok | Cancel | Yes | No
 data ButtonSet = OkAlone | OkCancel | YesNo | YesNoCancel

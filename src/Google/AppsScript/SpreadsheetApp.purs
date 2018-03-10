@@ -34,10 +34,10 @@ import Data.Foreign (Foreign)
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)
 
-foreign import data SpreadsheetApp :: *
-foreign import data Spreadsheet :: *
-foreign import data Sheet :: *
-foreign import data Range :: *
+foreign import data SpreadsheetApp :: Type
+foreign import data Spreadsheet :: Type
+foreign import data Sheet :: Type
+foreign import data Range :: Type
 
 type Row    = Int
 type Column = Int
