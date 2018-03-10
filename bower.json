@@ -11,11 +11,11 @@
     "output"
   ],
   "dependencies": {
-    "purescript-console": "^1.0.0",
-    "purescript-functions": "^1.0.0",
-    "purescript-foreign": "^1.0.0",
-    "purescript-maps": "^1.0.0",
-    "purescript-nullable": "^1.0.0",
-    "purescript-options": "^1.0.0"
+    "purescript-console": "^3.0.0",
+    "purescript-functions": "^3.0.0",
+    "purescript-foreign": "^4.0.1",
+    "purescript-maps": "^3.6.0",
+    "purescript-nullable": "^3.0.0",
+    "purescript-options": "^3.1.0"
   }
 }
