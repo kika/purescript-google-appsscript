@@ -29,7 +29,7 @@ module Google.AppsScript.SpreadsheetApp
 ) where
 
 import Data.Function.Uncurried (Fn3, Fn5, Fn4, runFn5, runFn4, runFn3)
-import Data.Foreign (Foreign)
+import Foreign (Foreign)
 
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Ui (Ui)

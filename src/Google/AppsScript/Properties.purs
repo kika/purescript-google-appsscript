@@ -18,11 +18,11 @@ import Prelude
 import Data.Function.Uncurried (Fn2, Fn3, runFn2, runFn3)
 import Data.Maybe (Maybe)
 import Data.Nullable (toMaybe, Nullable)
-import Data.StrMap (StrMap)
+import Foreign.Object               (Object)
 import Google.AppsScript.AppsScript (GASEff)
 
 foreign import data Properties :: Type
-type Props = StrMap String
+type Props = Object String
 
 foreign import getDocProps::GASEff Properties
 foreign import getScriptProps::GASEff Properties
