@@ -1,17 +1,15 @@
 module Google.AppsScript.AppsScript
 (
-    GAS
-  , GASEff
+    GASEff
   , (:)
 )
 where
 
 import Prelude
-import Effect (kind Effect)
+import Effect (Effect)
 
 
 -- | Effect type for Google AppsScript
-foreign import data GASEff :: Effect a
--- type GASEff a = forall e. Effect (gas::GAS|e) a
+type GASEff a = Effect a
 
 infixl 1 bind as :
