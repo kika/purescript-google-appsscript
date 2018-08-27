@@ -33,9 +33,9 @@ import Prelude
 
 import Data.Maybe                      (Maybe)
 import Data.Function.Uncurried         (Fn2, runFn2)
-import Data.Foreign                    (Foreign)
+import Foreign                         (Foreign)
 import Data.Options                    (Option, Options, opt, optional, options)
-import Data.StrMap                     (StrMap)
+import Foreign.Object                  (Object)
 import Data.Functor.Contravariant      ((>$<))
 
 import Google.AppsScript.AppsScript    (GASEff)
@@ -52,15 +52,15 @@ instance showMethod::Show Method where
   show POST   = "post"
   show PUT    = "put"
 
-type Headers = StrMap String
-type Cookies = StrMap (Array String)
+type Headers = Object String
+type Cookies = Object (Array String)
 
 -- | Type of the request parameters
 data RequestOptions
 type ReqOptions = Options RequestOptions
 
 -- | Request headers
-newtype RequestHeaders = RequestHeaders (StrMap String)
+newtype RequestHeaders = RequestHeaders (Object String)
 
 contentType::Option RequestOptions (Maybe String)
 contentType = optional $ opt "contentType"
