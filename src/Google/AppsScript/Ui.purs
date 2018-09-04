@@ -1,4 +1,4 @@
-module Google.AppsScript.Ui 
+module Google.AppsScript.Ui
 (
     Ui
   , Button(..)
@@ -14,7 +14,7 @@ module Google.AppsScript.Ui
 ) where
 
 import Prelude
-import Data.Function.Uncurried (Fn2, Fn5, Fn4, Fn3, 
+import Data.Function.Uncurried (Fn2, Fn5, Fn4, Fn3,
                                 runFn2, runFn5, runFn4, runFn3)
 import Google.AppsScript.AppsScript (GASEff)
 import Google.AppsScript.Html (HtmlOutput)
@@ -24,15 +24,15 @@ foreign import data Ui:: Type
 data Button = Close | Ok | Cancel | Yes | No
 data ButtonSet = OkAlone | OkCancel | YesNo | YesNoCancel
 
-foreign import alertImpl::Fn3      (Array Button) 
+foreign import alertImpl::Fn3      (Array Button)
                                    String Ui (GASEff Button)
-foreign import alertBtnsImpl::Fn4  (Array Button) 
+foreign import alertBtnsImpl::Fn4  (Array Button)
                                    String ButtonSet Ui (GASEff Button)
-foreign import alertTitleImpl::Fn5 (Array Button) 
+foreign import alertTitleImpl::Fn5 (Array Button)
                                    String String ButtonSet Ui (GASEff Button)
 foreign import showSidebarImpl::Fn2 HtmlOutput Ui (GASEff Unit)
 
-btns::Array Button 
+btns::Array Button
 btns = [Close, Ok, Cancel, Yes, No]
 
 alert::String -> Ui -> GASEff Button

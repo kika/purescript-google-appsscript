@@ -1,4 +1,4 @@
-module Google.AppsScript.SpreadsheetApp 
+module Google.AppsScript.SpreadsheetApp
 (
     SpreadsheetApp
   , Row
@@ -12,7 +12,7 @@ module Google.AppsScript.SpreadsheetApp
   , getLastColumn
   , getLastRow
   , getNumRows
-  , getNumColumns  
+  , getNumColumns
   , getActiveRange
   , getA1Notation
   , getValue
@@ -70,7 +70,7 @@ foreign import getValue::Range -> GASEff Foreign
 foreign import getFormula::Range -> GASEff String
 
 getCell::Row -> Column -> Range -> GASEff Range
-getCell row col range = runFn3 getCellImpl range row col 
+getCell row col range = runFn3 getCellImpl range row col
 getRange2::Row -> Column -> Sheet -> GASEff Range
 getRange2 row col sheet = runFn3 getRange2Impl row col sheet
 getRange3::Row -> Column -> Int -> Sheet -> GASEff Range

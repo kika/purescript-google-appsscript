@@ -40,7 +40,7 @@ exports.getLastRow = function (range) {
     }
 } // Range -> GASEff Row
 
-exports.getNumRows = function (range) { 
+exports.getNumRows = function (range) {
     return function () {
         return range.getNumRows();
     }
@@ -72,17 +72,17 @@ exports.getFormula = function (range) {
 
 exports.getActiveSheet = function (app) {
     return function () {
-       return app.getActiveSheet(); 
+       return app.getActiveSheet();
     }
 } //SpreadsheetApp -> GASEff Sheet
 exports.getName = function (sheet) {
     return function () {
-        return sheet.getName(); 
+        return sheet.getName();
     }
 } //Sheet -> GASEff String
 exports.getSheetId = function (sheet) {
     return function () {
-        return sheet.getSheetId();    
+        return sheet.getSheetId();
     }
 } //Sheet -> GASEff Int
 

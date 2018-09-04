@@ -29,7 +29,7 @@ exports.getAll = function (p) {
     return function () {
         return p.getProperties();
     }
-} //::Properties -> GASEff Props 
+} //::Properties -> GASEff Props
 exports.getImpl = function (key, p) {
     return function () {
         return p.getProperty(key);
@@ -39,7 +39,7 @@ exports.setAllImpl = function (props, p) {
     return function () {
         return p.setProperties(props);
     }
-} //::Props -> Properties -> GASEff Properties 
+} //::Props -> Properties -> GASEff Properties
 exports.setImpl = function (key, value, p) {
     return function () {
         return p.setProperty(key, value);

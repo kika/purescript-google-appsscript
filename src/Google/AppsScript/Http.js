@@ -64,7 +64,7 @@ exports.getAsImpl = function (ctype, res) {
 
 exports.requestImpl = function (url, params) {
   return function () {
-    return UrlFetchApp.fetch(url, params); 
+    return UrlFetchApp.fetch(url, params);
   }
 } //Fn2 String ReqOptions (GASEff HTTPResponse)
 

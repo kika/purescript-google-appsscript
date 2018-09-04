@@ -1,5 +1,5 @@
 -- | Module for debug logger
-module Google.AppsScript.Logger 
+module Google.AppsScript.Logger
 (
     clear
   , getLog

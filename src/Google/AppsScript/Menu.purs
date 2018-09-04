@@ -6,7 +6,7 @@ module Google.AppsScript.Menu
   , addToUi
   , addSeparator
   , addSubMenu
-) where 
+) where
 
 import Prelude (Unit)
 import Data.Function.Uncurried (Fn3, runFn3)
