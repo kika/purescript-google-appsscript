@@ -59,7 +59,8 @@ foreign import getRange3Impl::Fn4 Row Column Int Sheet (GASEff Range)
 foreign import getRange4Impl::Fn5 Row Column Int Int Sheet (GASEff Range)
 foreign import setActiveRange::Range -> Sheet -> GASEff Range
 foreign import getActiveRange::Sheet -> GASEff Range
-foreign import getColumn::Range -> GASEff Int
+foreign import getColumn::Range -> GASEff Column
+foreign import getRow::Range -> GASEff Row
 foreign import getCellImpl::Fn3 Range Row Column (GASEff Range)
 foreign import getLastColumn::Range -> GASEff Column
 foreign import getLastRow::Range -> GASEff Row

@@ -22,6 +22,12 @@ exports.getColumn = function (range) {
     }
 } // Range -> GASEff Int
 
+exports.getRow = function (range) {
+    return function () {
+        return range.getRow();
+    }
+} // Range -> GASEff Int
+
 exports.getCellImpl = function (range, row, col) {
     return function () {
         return range.getCell( row, col );
