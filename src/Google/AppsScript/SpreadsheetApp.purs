@@ -8,6 +8,7 @@ module Google.AppsScript.SpreadsheetApp
   , app
   , getUi
   , getColumn
+  , getRow
   , getCell
   , getLastColumn
   , getLastRow
