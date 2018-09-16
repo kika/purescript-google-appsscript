@@ -65,6 +65,7 @@ foreign import getRow::Range -> GASEff Row
 foreign import getCellImpl::Fn3 Range Row Column (GASEff Range)
 foreign import getLastColumn::Range -> GASEff Column
 foreign import getLastRow::Range -> GASEff Row
+foreign import getDataRange::Sheet -> GASEff Range
 foreign import getNumRows::Range -> GASEff Int
 foreign import getNumColumns::Range -> GASEff Int
 foreign import getA1Notation::Range -> GASEff String

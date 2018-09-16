@@ -46,6 +46,12 @@ exports.getLastRow = function (range) {
     }
 } // Range -> GASEff Row
 
+exports.getDataRange = function (sheet) {
+  return function () {
+    return sheet.getDataRange();
+  }
+} // Sheet -> GASEff Range
+
 exports.getNumRows = function (range) {
     return function () {
         return range.getNumRows();
