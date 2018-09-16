@@ -80,3 +80,17 @@ exports.showSidebarImpl = function (html, ui) {
         return {};
     }
 }
+
+exports.showModalDialogImpl = function (html, title, ui) {
+    return function () {
+        ui.showModalDialog(html, title);
+        return {};
+    }
+}
+
+exports.showModelessDialogImpl = function (html, title, ui) {
+    return function () {
+        ui.showModelessDialog(html, title);
+        return {};
+    }
+}

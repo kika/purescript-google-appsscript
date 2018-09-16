@@ -7,6 +7,8 @@ module Google.AppsScript.Ui
   , alertButtons
   , alertTitle
   , showSidebar
+  , showModalDialog
+  , showModelessDialog
   {-
   , prompt
   , createAddonMenu
@@ -31,6 +33,8 @@ foreign import alertBtnsImpl::Fn4  (Array Button)
 foreign import alertTitleImpl::Fn5 (Array Button)
                                    String String ButtonSet Ui (GASEff Button)
 foreign import showSidebarImpl::Fn2 HtmlOutput Ui (GASEff Unit)
+foreign import showModalDialogImpl::Fn3 HtmlOutput String Ui (GASEff Unit)
+foreign import showModelessDialogImpl::Fn3 HtmlOutput String Ui (GASEff Unit)
 
 btns::Array Button
 btns = [Close, Ok, Cancel, Yes, No]
@@ -46,3 +50,9 @@ alertTitle title msg btnset ui = runFn5 alertTitleImpl btns title msg btnset ui
 
 showSidebar::HtmlOutput -> Ui -> GASEff Unit
 showSidebar html ui = runFn2 showSidebarImpl html ui
+
+showModalDialog::HtmlOutput -> String -> Ui -> GASEff Unit
+showModalDialog html title ui = runFn3 showModalDialogImpl html title ui
+
+showModelessDialog::HtmlOutput -> String -> Ui -> GASEff Unit
+showModelessDialog html title ui = runFn3 showModelessDialogImpl html title ui
