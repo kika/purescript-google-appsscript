@@ -24,6 +24,12 @@ exports.setWidthImpl = function (width, html) {
     }
 }
 
+exports.setHeightImpl = function (width, html) {
+    return function () {
+        return html.setHeight(width);
+    }
+}
+
 exports.setSandboxMode = function (html) {
     return function() {
         html.setSandboxMode( HtmlService.SandboxMode.IFRAME );
